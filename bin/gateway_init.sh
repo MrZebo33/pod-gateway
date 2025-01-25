@@ -12,8 +12,8 @@ if [ "${IPTABLES_NFT:-no}" = "yes" ];then
     # We cannot just call iptables-translate as it'll just print new syntax without applying
     which iptables
     which iptables-translate
-    rm /sbin/iptables
-    ln -s /sbin/iptables-translate /sbin/iptables
+    rm /usr/sbin/iptables || true
+    ln -s /usr/sbin/iptables-translate /usr/sbin/iptables
 fi
 
 # It might already exists in case initContainer is restarted
